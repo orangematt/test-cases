@@ -1,0 +1,14 @@
+syntax = "proto3";
+package example;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/orangematt/test-cases/grpc-idle-disconnect/service";
+
+message Message {
+	string s = 1;
+}
+
+service MessageService {
+	rpc StreamUpdates(google.protobuf.Empty) returns (stream Message) {};
+}
